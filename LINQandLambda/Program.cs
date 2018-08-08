@@ -9,30 +9,47 @@ namespace LINQandLambda
     {
         static void Main(string[] args)
         {
-            //IEnumerable<Donation> names = Donation.Where(p => p.Make == "BMW" && p.Year == 2010);
+            //IEnumerable<Donation> names = Donation.Data;
 
-            IEnumerable<Donation> names = Donation.Data;
+            //foreach (var name in names)
+            //{
+            //    Console.WriteLine(name.FirstName);
+            //}
 
-            foreach (var name in names)
-            {
+            //var n = ("Benjamin"[0] - ('a'));
 
-                Console.WriteLine(name.FirstName);
-            }
-
-
-            //var names = from IEnumerable<Donation> FirstName in Donation.Data where Donation.FirstName ;
+            //var lastNameOneWay = Donation.Data.Select(x => x.LastName).ElementAt(n);
+            //Console.WriteLine(lastNameOneWay);
 
 
-            //List<Donation> myList = new List<Donation>();
+            IEnumerable<Donation> donation = Donation.Data;
+            //var data = Donation.Data;
+            //Donation state = data;                                                
+            //string mostGenerous = AllStatesDonations.FirstOrDefault(StateDonations(state).OrderedBy(x => x.state.StateDonation));
 
-            ////var names = Donation.Data.ToString();
+            //decimal stateDonation = StateDonations(state);
 
-            //foreach (var name in myList){
-                //Console.WriteLine(name);
-            }
+            //IEnumerable<Donation> illinoisDonation = Donation.Data.Where(x => x.State == "IL");
+            //foreach(var ammount in illinoisDonation){
+            //    Console.WriteLine(ammount.Amount + ammount.FirstName + ammount.LastName);
+            //}
+            //Console.WriteLine("");
+
+            var states = donation.GroupBy(x => x.State);
+
+            //foreach(state in )
+            var mostGenerousState = states.OrderByDescending(x => x.Sum(y => y.Amount));
+
+          //Donation.Data.FirstOrDefault(x => x.State.Sum(s => s.Amount)).OrderedByDescending(x);
+
+            Console.WriteLine(mostGenerousState.FirstOrDefault().Key);
         }
-    }
 
- 
+        //private static decimal StateDonations(string state)
+        //{
+        //    return Donation.Data.Where(x => x.State == state).Sum(x => x.Amount);
+        //}
+    }
+}
 //S=18
 //N=18
