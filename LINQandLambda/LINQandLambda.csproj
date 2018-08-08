@@ -5,4 +5,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Program.cs~" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SampleDataCore">
+      <HintPath>..\..\SampleDataCore\SampleDataCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
